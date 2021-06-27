@@ -1,0 +1,95 @@
+
+ls -a /mnt
+sudo cp /usr/share/kbd/keymaps/i386/colemak/colemak.map.gz us.map.gz
+
+loadkeys colemak
+
+
+---------------------------
+mkfs.btrfs -L System /dev/nvme0n1p5
+
+mount /dev/nvme0n1p5 /mnt
+
+btrfs su cr /mnt/@
+btrfs su cr /mnt/@home
+btrfs su cr /mnt/@var_log
+btrfs su cr /mnt/@swap
+btrfs su cr /mnt/@snapshots
+
+umount /mnt
+
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@ /dev/nvme0n1p5 /mnt
+mkdir -p /mnt/{boot,home,.snapshots,var_log,swap}
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@home /dev/nvme0n1p5 /mnt/home
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@snapshots /dev/nvme0n1p5 /mnt/.snapshots
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@var_log /dev/nvme0n1p5 /mnt/var_log
+
+mount /dev/nvme0n1p1 /mnt/boot
+
+basestrap /mnt linux-zen linux-firmware linux-zen-headers base base-devel runit elogind-runit btrfs-progs 
+
+
+
+fstabgen -U /mnt >> /mnt/etc/fstab
+
+artix-chroot /mnt
+
+truncate -s 0 /swap/swapfile
+chattr +C /swap/swapfile
+btrfs property set /swap/swapfile compression none
+dd if=/dev/zero of=/swap/swapfile bs=1G count=2 status=progress
+chmod 600 /swap/swapfile
+mkswap /swap/swapfile
+swapon /swap/swapfile
+/swap/swapfile  none    swap    deflaults       0 0
+
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+hwclock --systohc 
+
+vim /etc/locale.gen
+
+locale-gen
+
+vim /etc/locale.conf
+
+LANG=en_US.UTF-8
+
+vim /etc/hostname
+
+vim /etc/hosts
+
+127.0.0.1   localhost
+::1     localhost
+127.0.1.1   artix.localdomain    artix
+
+
+pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant os-prober mtools dosfstools ntfs-3g git sudo amd-ucode networkmanager-runit
+
+
+
+vim /etc/default/grub
+GRUB_DISABLE_OS_PROBER=false
+
+efibootmgr -B -b 0001
+
+vim /etc/mkinitcpio.conf
+
+pacman -S snapper
+mkinitcpio -p linux-zen
+
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Artix
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+useradd -m -G wheel mir
+
+passwd mir
+
+EDITOR=nano visudo
+
+ls /etc/runit/sv
+
+pacman -S connman-runit connman-gtk (or cmst for Qt-based DEs)
+ln -s /etc/runit/sv/networkmanager /run/runit/networkmanager
