@@ -1,0 +1,122 @@
+{
+    "layer": "top",
+    "height": 28,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/weather", "battery", "pulseaudio", "backlight", "cpu", "memory", "network", "tray"],
+
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{icon} {percent}%",
+      "format-icons": ["", ""],
+      "on-scroll-up": "light -A 1",
+      "on-scroll-down": "light -U 1"
+    },
+
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock": {
+      "format": "{:%H:%M:%S %p}",
+      "format-alt": "{:%A, %d %B %Y}",
+      "interval": 1,
+      "on-click-right": "wl-copy $(date '+%Y-%m-%d %T')",
+      "tooltip": false
+    },
+
+    "cpu": {
+      "interval": 10,
+      "states": {
+        "warning": 60,
+        "critical": 90
+      },
+      "format": " {}%",
+      "max-length": 10,
+      "on-click": "alacritty -e htop"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1"
+    },
+
+    "memory": {
+      "interval": 30,
+      "states": {
+        "warning": 60,
+        "critical": 90
+      },
+      "format": " {}%",
+      "max-length": 10,
+      "tooltip": false
+    },
+
+    "network": {
+      "format-wifi": " {essid} ({signalStrength}%)",
+      "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+      "format-disconnected": "Disconnected",
+      "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+      "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
+      "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
+      "tooltip-format-wifi": "{essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n⬆: {bandwidthUpBits} ⬇: {bandwidthDownBits}",
+	  "interval": 10
+    },
+
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": " MUTED",
+      "format-icons": {
+        "default": ["", ""]
+      },
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "on-click-middle": "pavucontrol-qt",
+      "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+      "tooltip": false
+    },
+
+    "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>",
+      "pango_markup": true
+    },
+
+	"sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "urgent": "",
+        "focused": "",
+        "default": ""
+      }
+    },
+
+    "temperature": {
+	  "critical-threshold": 70,
+	  "format-critical": " {temperatureC}°C",
+	  "format": " {temperatureC}°C"
+    },
+
+    "tray": {
+      "spacing": 10
+    }
+}
