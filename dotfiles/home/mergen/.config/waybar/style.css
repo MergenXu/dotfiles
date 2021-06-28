@@ -1,20 +1,20 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: PragmataPro,Bold;
+  font-family: PragmataPro,Mono;
   font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.9);
   border-bottom: 0px;
   color: #ffffff;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
-window#waybar.hidden { opacity: 0.2; }
+window#waybar.hidden { opacity: 0.1; }
 
 #workspaces button {
   background-color: transparent;

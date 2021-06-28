@@ -41,6 +41,12 @@ dotfiles:
   d_pictures:
     src: home/mergen/Pictures
     dst: /home/mergen/Pictures
+  d_kitty:
+    src: home/mergen/.config/kitty
+    dst: /home/mergen/.config/kitty
+  d_nvim:
+    src: home/mergen/.config/nvim
+    dst: /home/mergen/.config/nvim
 profiles:
   archlinux:
     dotfiles:
@@ -55,3 +61,5 @@ profiles:
     - d_waybar
     - d_pragmatapro
     - d_pictures
+    - d_kitty
+    - d_nvim

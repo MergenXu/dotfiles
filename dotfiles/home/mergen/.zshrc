@@ -104,6 +104,27 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+
+# *****************************************************************************
+
+# Aliases:
+alias sudo='sudo '
+alias vim='nvim'
+
+
+# *****************************************************************************
+# Variables and Options:
+
+# Exported variables:
+export PATH=$PATH:~/bin:~/.local/bin:/usr/local/bin
+export EDITOR="nvim"
+export VISUAL=$EDITOR
+#export BROWSER=/usr/bin/firefox-wayland
+export XDG_CONFIG_HOME="${HOME}/.config/"
+
+# # *****************************************************************************
+
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
@@ -111,5 +132,3 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-export XKB_DEFAULT_LAYOUT=us
-export XKB_DEFAULT_VARIANT=colemak
