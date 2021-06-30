@@ -123,6 +123,14 @@ export VISUAL=$EDITOR
 #export BROWSER=/usr/bin/firefox-wayland
 export XDG_CONFIG_HOME="${HOME}/.config/"
 
+
+export MOZ_ENABLE_WAYLAND=1
+export XDG_SESSION_TYPE=wayland
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
 # # *****************************************************************************
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh

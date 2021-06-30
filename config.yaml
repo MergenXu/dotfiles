@@ -47,6 +47,9 @@ dotfiles:
   d_nvim:
     src: home/mergen/.config/nvim
     dst: /home/mergen/.config/nvim
+  d_basil:
+    src: boot/grub/themes/basil
+    dst: /boot/grub/themes/basil
 profiles:
   archlinux:
     dotfiles:
@@ -63,3 +66,4 @@ profiles:
     - d_pictures
     - d_kitty
     - d_nvim
+    - d_basil

@@ -217,6 +217,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 #Auto start
 exec --no-startup-id /usr/local/trojan-go/trojan-go -config /usr/local/trojan-go/config.json
 
+exec fcitx5 -r
+
 #
 # Status Bar:
 #
@@ -233,5 +235,7 @@ input type:keyboard {
 default_border pixel 2
 focus_follows_mouse no
 mouse_warping none
+xwayland enable
+
 
 include /etc/sway/config.d/*

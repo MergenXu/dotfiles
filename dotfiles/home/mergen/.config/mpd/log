@@ -565,3 +565,11 @@ Jun 27 22:12 : exception: Failed to decode /root/Music/3-Dark Fantasy Studio- Cr
 Jun 27 22:12 : player: played "3-Dark Fantasy Studio- Creepy doll.mp3"
 Jun 27 22:12 : exception: Failed to decode /root/Music/10-Dark Fantasy Studio- The mirror (seamless).mp3; Failed to open '/root/Music/10-Dark Fantasy Studio- The mirror (seamless).mp3': No such file or directory
 Jun 27 22:12 : player: played "10-Dark Fantasy Studio- The mirror (seamless).mp3"
+Jun 28 17:33 : avahi: Client Disconnected, will reconnect shortly
+Jun 28 17:33 : avahi: Could not reconnect: Daemon not running
+Jun 29 10:52 : avahi: Client Disconnected, will reconnect shortly
+Jun 29 10:52 : avahi: Could not reconnect: Daemon not running
+Jun 30 18:31 : avahi: Client Disconnected, will reconnect shortly
+Jun 30 18:31 : avahi: Could not reconnect: Daemon not running
+Jun 30 18:58 : avahi: Client Disconnected, will reconnect shortly
+Jun 30 18:58 : avahi: Could not reconnect: Daemon not running
