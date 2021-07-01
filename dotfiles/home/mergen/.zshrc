@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+export ZSH="/home/mergen/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="autoload"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -24,7 +24,7 @@ ZSH_THEME="agnoster"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -70,11 +70,12 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
-	git
-	autojump
-	zsh-syntax-highlighting
-	zsh-autosuggestions
+        git
+        autojump
+        zsh-syntax-highlighting
+        zsh-autosuggestions
 )
 
 
@@ -86,57 +87,36 @@ plugins=(
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#--------------------------------------------------------------#
+##          Environment Variables                             ##
+#--------------------------------------------------------------#
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export XDG_SESSION_TYPE="wayland"
+export XDG_CURRENT_DESKTOP="sway"
+export EGL_PLATFORM=wayland
+export CLUTTER_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
+export QT_QPA_PLATFORM=wayland-egl
+export LIBSEAT_BACKEND=logind
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH=$PATH:$HOME/.local/bin
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
 
-
-
-# *****************************************************************************
-
-# Aliases:
-alias sudo='sudo '
-alias vim='nvim'
-
-
-# *****************************************************************************
-# Variables and Options:
-
-# Exported variables:
-export PATH=$PATH:~/bin:~/.local/bin:/usr/local/bin
 export EDITOR="nvim"
-export VISUAL=$EDITOR
-#export BROWSER=/usr/bin/firefox-wayland
-export XDG_CONFIG_HOME="${HOME}/.config/"
+export VISUAL="$EDITOR"
+export TERMINAL="kitty"
+export BROWSER="google-chrome-stable"
 
 
-export MOZ_ENABLE_WAYLAND=1
-export XDG_SESSION_TYPE=wayland
+export LANG=en_US.UTF-8
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=colemak
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
 
-# # *****************************************************************************
+alias sudo="sudo "
+alias vim="nvim"
 
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
 
 source $ZSH/oh-my-zsh.sh
-

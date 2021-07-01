@@ -573,3 +573,5 @@ Jun 30 18:31 : avahi: Client Disconnected, will reconnect shortly
 Jun 30 18:31 : avahi: Could not reconnect: Daemon not running
 Jun 30 18:58 : avahi: Client Disconnected, will reconnect shortly
 Jun 30 18:58 : avahi: Could not reconnect: Daemon not running
+Jun 30 23:40 : avahi: Client Disconnected, will reconnect shortly
+Jun 30 23:40 : avahi: Could not reconnect: Daemon not running

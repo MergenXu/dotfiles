@@ -8,9 +8,6 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_zshrc:
-    src: home/mergen/.zshrc
-    dst: /home/mergen/.zshrc
   f_config:
     src: home/mergen/.config/sway/config
     dst: /home/mergen/.config/sway/config
@@ -50,10 +47,16 @@ dotfiles:
   d_basil:
     src: boot/grub/themes/basil
     dst: /boot/grub/themes/basil
+  d_fish:
+    src: home/mergen/.config/fish
+    dst: /home/mergen/.config/fish
+  f_zshrc:
+    src: home/mergen/.zshrc
+    dst: /home/mergen/.zshrc
+    chmod: '777'
 profiles:
   archlinux:
     dotfiles:
-    - f_zshrc
     - f_config
     - d_alacritty
     - d_mpd
@@ -67,3 +70,5 @@ profiles:
     - d_kitty
     - d_nvim
     - d_basil
+    - d_fish
+    - f_zshrc
