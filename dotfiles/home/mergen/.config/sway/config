@@ -82,7 +82,7 @@ output * bg ~/Pictures/5.png fill
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+y exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+y exec swaymsg exit
 #
 # Moving around:
 #
@@ -201,6 +201,9 @@ bindsym $mod+c exec google-chrome-stable -enable-features=UseOzonePlatform -ozon
 bindsym $mod+g exec ~/.local/share/Godot/Godot_v3.3-stable_x11.65
 
 bindsym $mod+k exec krita
+
+
+bindsym $mod+y exec ~/.local/share/docker-aseprite-linux/output/aseprite/build/bin/aseprite
 
 #bindsym $mod+y exec ~/.local/share/applications/webstorm
 

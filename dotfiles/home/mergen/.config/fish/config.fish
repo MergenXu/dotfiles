@@ -1,4 +1,5 @@
 fish_add_path "$HOME/.local/bin" 
+fish_add_path "$HOME/deps/depot_tools" 
 
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x XDG_DATA_HOME "$HOME/.local/share"
@@ -31,6 +32,9 @@ set -x TERMINAL kitty
 #alias sudo='sudo'
 #alias vim='nvim'
 
+#alias shutdown = 'sudo poweroff'
 
 abbr -a -- sv "sudo $EDITOR"
+abbr -a -- sp sudo pacman
+abbr -a -- sps sudo pacman -S
 abbr -a -- s sudo
