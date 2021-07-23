@@ -2,73 +2,83 @@ config:
   backup: true
   banner: true
   create: true
-  dotpath: dotfiles
+  dotpath: ~/dotfiles
   keepdot: false
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_config:
-    src: home/mergen/.config/sway/config
-    dst: /home/mergen/.config/sway/config
-  d_alacritty:
-    src: home/mergen/.config/alacritty
-    dst: /home/mergen/.config/alacritty
-  d_mpd:
-    src: home/mergen/.config/mpd
-    dst: /home/mergen/.config/mpd
-  d_ranger:
-    src: home/mergen/.config/ranger
-    dst: /home/mergen/.config/ranger
-  d_wofi:
-    src: home/mergen/.config/wofi
-    dst: /home/mergen/.config/wofi
-  f_ncmpcpp_config:
-    src: home/mergen/.config/ncmpcpp/config
-    dst: /home/mergen/.config/ncmpcpp/config
-  f_default.pa:
-    src: home/mergen/.config/pulse/default.pa
-    dst: /home/mergen/.config/pulse/default.pa
-  d_waybar:
-    src: home/mergen/.config/waybar
-    dst: /home/mergen/.config/waybar
+  f_xinitrc:
+    src: xinitrc
+    dst: ~/.xinitrc
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+  f_bash_profile:
+    src: bash_profile
+    dst: ~/.bash_profile
+  d_icons:
+    src: icons
+    dst: ~/.icons
+  f_xauthority:
+    src: Xauthority
+    dst: ~/.Xauthority
+    chmod: '600'
+  f_xresources:
+    src: Xresources
+    dst: ~/.Xresources
+  d_fish:
+    src: config/fish
+    dst: ~/.config/fish
+    chmod: '700'
+  d_gtk-3.0:
+    src: config/gtk-3.0
+    dst: ~/.config/gtk-3.0
+    chmod: '700'
+  d_lf:
+    src: config/lf
+    dst: ~/.config/lf
+  d_ncmpcpp:
+    src: config/ncmpcpp
+    dst: ~/.config/ncmpcpp
+  d_picom:
+    src: config/picom
+    dst: ~/.config/picom
+  d_dwm:
+    src: local/share/dwm
+    dst: ~/.local/share/dwm
+  f_make.conf:
+    src: etc/portage/make.conf
+    dst: /etc/portage/make.conf
+  f_merguse:
+    src: etc/portage/package.use/merguse
+    dst: /etc/portage/package.use/merguse
+  d_merg:
+    src: var/db/repos/merg
+    dst: /var/db/repos/merg
   d_pragmatapro:
     src: usr/share/fonts/PragmataPro
     dst: /usr/share/fonts/PragmataPro
-  d_pictures:
-    src: home/mergen/Pictures
-    dst: /home/mergen/Pictures
-  d_kitty:
-    src: home/mergen/.config/kitty
-    dst: /home/mergen/.config/kitty
-  d_nvim:
-    src: home/mergen/.config/nvim
-    dst: /home/mergen/.config/nvim
-  d_basil:
-    src: boot/grub/themes/basil
-    dst: /boot/grub/themes/basil
-  d_fish:
-    src: home/mergen/.config/fish
-    dst: /home/mergen/.config/fish
-  f_zshrc:
-    src: home/mergen/.zshrc
-    dst: /home/mergen/.zshrc
-    chmod: '777'
+  f_mpd.conf:
+    src: etc/mpd.conf
+    dst: /etc/mpd.conf
 profiles:
-  archlinux:
+  gentoo:
     dotfiles:
-    - f_config
-    - d_alacritty
-    - d_mpd
-    - d_ranger
-    - d_wofi
-    - f_ncmpcpp_config
-    - f_default.pa
-    - d_waybar
-    - d_pragmatapro
-    - d_pictures
-    - d_kitty
-    - d_nvim
-    - d_basil
+    - f_xinitrc
+    - f_bashrc
+    - f_bash_profile
+    - d_icons
+    - f_xauthority
+    - f_xresources
     - d_fish
-    - f_zshrc
+    - d_gtk-3.0
+    - d_lf
+    - d_ncmpcpp
+    - d_picom
+    - d_dwm
+    - f_make.conf
+    - f_merguse
+    - d_merg
+    - d_pragmatapro
+    - f_mpd.conf

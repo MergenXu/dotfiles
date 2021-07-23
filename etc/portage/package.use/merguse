@@ -1,0 +1,12 @@
+x11-misc/polybar	alsa curl mpd network pulseaudio ipc
+media-gfx/krita		qtmedia vc gif jpeg
+media-sound/mpd		alsa curl dbus fifo flac gme mad lame musepack network nfs pulseaudio wildmidi
+media-sound/ncmpcpp	visualizer outputs lto clock
+x11-misc/lemonbar	doc
+x11-wm/dwm		savedconfig
+x11-terms/st		savedconfig
+app-i18n/fcitx5-chinese-addons	browser
+www-client/nyxt		spell
+net-misc/aria2		bittorrent metalink xmlrpc scripts
+www-client/uget		aria2
+mail-client/neomutt	autocrypt lmdb gpgme
