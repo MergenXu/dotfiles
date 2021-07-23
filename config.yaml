@@ -56,9 +56,6 @@ dotfiles:
   d_merg:
     src: var/db/repos/merg
     dst: /var/db/repos/merg
-  d_pragmatapro:
-    src: usr/share/fonts/PragmataPro
-    dst: /usr/share/fonts/PragmataPro
   f_mpd.conf:
     src: etc/mpd.conf
     dst: /etc/mpd.conf
@@ -83,6 +80,5 @@ profiles:
     - f_make.conf
     - f_merguse
     - d_merg
-    - d_pragmatapro
     - f_mpd.conf
     - d_aria2
