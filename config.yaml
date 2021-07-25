@@ -62,6 +62,12 @@ dotfiles:
   d_aria2:
     src: config/aria2
     dst: ~/.config/aria2
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  f_picom.conf:
+    src: config/picom/picom.conf
+    dst: ~/.config/picom/picom.conf
 profiles:
   gentoo:
     dotfiles:
@@ -82,3 +88,5 @@ profiles:
     - d_merg
     - f_mpd.conf
     - d_aria2
+    - f_zshrc
+    - f_picom.conf

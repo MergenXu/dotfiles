@@ -4,3 +4,4 @@ feh --bg-fill ~/Pictures/Wallpapers/84437653_p0.jpg &
  ~/.local/share/trojan-go/trojan-go -config ~/.local/share/trojan-go/config.json &
 slstatus &
 fcitx &
+picom &

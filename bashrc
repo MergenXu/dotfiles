@@ -23,4 +23,4 @@ fi
 
 #eval `dircolors ~/.dircolors`
 
-[ -x /bin/fish ] && exec fish
+#[ -x /bin/fish ] && exec fish
